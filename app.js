@@ -7,17 +7,12 @@ const notFoundMiddleware = require("./middleware/not-found");
 const errorHandlerMiddleware = require("./middleware/error-handler");
 
 const connectDB = require("./db/connect");
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 5001;
 
 const productRoutes = require("./routes/products");
 
 // express body parser
 app.use(express.json());
-
-// Main Route
-app.get("/", (req, res) => {
-  res.send('<h1>Store API</h1><a href="api/v1/products">products</a>');
-});
 
 app.use("/api/v1/products", productRoutes);
 
